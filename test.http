@@ -1,0 +1,103 @@
+@host = https://dogeempire.herokuapp.com
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lQHRlc3QuY29tIiwiaWF0IjoxNjIwNzkwMjk4LCJleHAiOjE2MjA4NzY2OTh9.sgxrvdXefDkn2J-OFzaHLmK4PQOmnYrsN6nx2ldhbJU
+POST  {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "me@test.com",
+    "password": "password"
+}
+
+###
+
+POST {{host}}/api/doges
+Content-Type: application/json
+x-auth: {{token}}
+
+{
+    "uid": "3",
+    "name": "Perro",
+    "breed": "Gran Danés",
+    "size": ["Big"],
+    "sex":  ["Male"],
+    "age": "5",
+    "owner": "pass@test.com",
+    "information": "Good woof.",
+    "image": "img",
+    "personality": "Likes beer."
+}
+
+###
+
+GET {{host}}/api/doges?owner=test@test
+x-auth: {{token}}
+
+###
+
+GET {{host}}/api/doges/3
+x-auth: {{token}}
+
+###
+
+PUT {{host}}/api/doges/1
+x-auth: {{token}}
+x-admin: kingdoge
+Content-Type: application/json
+
+{
+    "name": "New Doge",
+    "breed": "Alien Dogo",
+    "size": ["Big"],
+    "personality": "Likes beer."
+}
+
+###
+
+DELETE {{host}}/api/doges/1
+x-auth: {{token}}
+x-admin: kingdoge
+
+####
+
+GET {{host}}/api/users
+x-auth: {{token}}
+
+###
+
+POST {{host}}/api/users
+x-auth: {{token}}
+Content-Type: application/json
+
+{
+    "email": "emailnuevo@test.com",
+    "name": "Andres",
+    "lastName": "Gonzalez",
+    "birthdate": "12-12-2000",
+    "sex": ["Male"],
+    "address": "Calle 123",
+    "password": "password",
+    "image": "img"
+}
+
+###
+
+GET {{host}}/api/users/juan@test.com
+x-auth: {{token}}
+
+###
+
+PUT {{host}}/api/users/newemail@test.com
+x-auth: {{token}}
+x-admin: kingdoge
+Content-Type: application/json
+
+{
+    "name": "Andrea",
+    "sex": ["Female"]
+}
+
+###
+
+DELETE {{host}}/api/users/newemail@test.com
+x-auth: {{token}}
+x-admin: kingdoge

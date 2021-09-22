@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Doge Empire</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/theme_1618793627092.css">
+
+    <style>
+        .col-centered {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    
+        .align-left {
+             text-align: left;
+        }
+    
+        .align-right {
+            text-align: right;
+        }
+
+        /* div {
+            margin: 0.5em;
+        } */
+    
+        </style>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a href="index.html">
+            <img class="mr-2" src="./img/dog.png" style="width: 50px;" href="#"/>
+            
+        </a>
+        <a class="navbar-brand" href="index.html">Doge Empire</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="doges.html">Doges</a>
+                </li>
+                <li class="nav-item" id="login-menu-button">
+                    <a class="nav-link " href="" data-toggle="modal" data-target="#login-modal">Log in</a>
+                </li>
+                <li class="nav-item" id="mydoges-menu-button">
+                    <a class="nav-link " href="mydoges.html">My doges</a>
+                </li>
+                <li class="nav-item" id="register-doge-menu-button">
+                    <a class="nav-link " href="" data-toggle="modal" data-target="#doge-register-modal">Register a doge</a>
+                </li>
+                <li class="nav-item" id="logout-menu-button">
+                    <a class="nav-link " href="">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="alerts"></div>
+    <div id="user"></div>
+
+    <!-- <div class="mt-5 border col-4 col-centered rounded mb-5">
+        <div class="media-left mt-5">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/1200px-Shakespeare.jpg" class="img-fluid rounded-circle" alt="" style="width: 20em;">
+        </div>
+    
+        <div class="text-left m-5">
+            <div class="h1 text-center">William Shakespeare</div>
+            <br/>
+            <div style="margin: 0.5em;">Birthdate: 01/04/1564</div>
+            <div style="margin: 0.5em;">Sex: Male</div>
+            <div style="margin: 0.5em;">Location: Stratford-upon-Avon, United Kingdom</div>
+            <div style="margin: 0.5em;">Email: shakespear@21century.uk</div>
+        </div>
+        <br/>
+        
+        <div class="h2 font-weight-light">Doges</div>
+        <div class="media m-2 rounded color-primary">
+            <div class="media-left align-self-center m-3">
+                <img src="https://placedog.net/500" class="img-fluid rounded-circle" alt="" style="width: 8em; height: 8em;">
+            </div>
+    
+            <div class="text-left media-body align-self-center ml-3">
+                <a href="doge.html">
+                    <h4>Max</h4>
+                </a>
+                <div class="m-0">Gender: Male</div>
+                <div class="m-0">Birthdate: 01/11/2019</div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                                <div class="form-group col-6">
+                                <input type="text"
+                                    class="form-control" name="" id="register-name" aria-describedby="helpId" placeholder="Name" required>
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="text"
+                                    class="form-control" name="" id="register-last-name" aria-describedby="helpId" placeholder="Last name" required>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                        <input type="email" class="form-control" name="" id="register-email" aria-describedby="helpId" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="" id="register-password" aria-describedby="helpId" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="" id="register-pasword-confirm" aria-describedby="helpId" placeholder="Confirm password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="" id="register-birth-date" aria-describedby="helpId" max="2020-12-31" required>
+                        </div>
+                        <div class="form-check border">
+                            <div>
+                                <label class="form-check-label ml-3">
+                                    <input type="radio" class="form-check-input" name="register-radio" id="register-woman" value="checkedValue" required>
+                                        Female
+                                </label>
+                            </div>
+                            <div>
+                                <label class="form-check-label ml-3">
+                                    <input type="radio" class="form-check-input" name="register-radio" id="register-man" value="checkedValue" required>
+                                        Male
+                                </label>
+                            </div>
+                        </div>
+                        <div class="">&nbsp</div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="register-address" aria-describedby="helpId" placeholder="Your address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="register-url" aria-describedby="helpId" placeholder="Profile image URL">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="submit-user">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doge Register Modal -->
+    <div class="modal fade" id="doge-register-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Find your doge a new home!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="doge-register-name" aria-describedby="helpId" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="doge-register-breed" aria-describedby="helpId" placeholder="Breed" required>
+                        </div>
+                        <div class="form-group">
+                          <select class="form-control" name="dog" id="doge-register-size" required>
+                            <option selected disabled>Select a size for your doge</option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Big">Big</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="" id="doge-register-age" aria-describedby="helpId" placeholder="Age" required>
+                        </div>
+                        <div class="form-check border">
+                            <div>
+                                <label class="form-check-label ml-3">
+                                    <input type="radio" class="form-check-input" name="doge-register-radio" id="doge-register-female" value="checkedValue" checked>
+                                        Female
+                                </label>
+                            </div>
+                            <div>
+                                <label class="form-check-label ml-3">
+                                    <input type="radio" class="form-check-input" name="doge-register-radio" id="doge-register-male" value="checkedValue">
+                                        Male
+                                </label>
+                            </div>
+                        </div>
+                        <div class="">&nbsp</div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="doge-register-personality" aria-describedby="helpId" placeholder="Describe your doge's personality in a few words" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea type="text" rows="2" class="form-control" name="" id="doge-register-needs" aria-describedby="helpId" placeholder="Special needs"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea type="text" rows="2" class="form-control" name="" id="doge-register-info" aria-describedby="helpId" placeholder="Additional information"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="doge-register-image" aria-describedby="helpId" placeholder="Doge's image URL">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="submit-doge">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">Login</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                <div class="modal-body">
+                    <div class="form-group ml-2 mr-5">
+                        <label for="login-email">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <input type="email" class="form-control" id="login-email" aria-describedby="helpId" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group ml-2 mr-5">
+                        <label for="login-password">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fas fa-key"></i>
+                                </div>
+                            </div>
+                            <input type="password" class="form-control" id="login-password" aria-describedby="helpId" placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer w-100">
+                    <div class="flex-column">
+                        <div class="w-100 d-flex justify-content-end">
+                            <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal" id="login-cancel">Cancel</button>
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal" id="submit-login">Login</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="mx-4 border-top"></div>
+                    <div class="mx-4 mt-3 mb-1 d-flex justify-content-end">
+                        <p>Not registered yet?&nbsp</p>
+                        <a href="#" data-toggle="modal" data-target="#register-modal" data-dismiss="modal">Register now!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script>
+        let registerModal = document.getElementById("register-modal");
+        let registerButton = document.getElementById("submit-user");
+        let dogeRegisterModal = document.getElementById("doge-register-modal");
+        let dogeRegisterButton = document.getElementById("submit-doge");
+        let loginModal = document.getElementById("login-modal");
+        let loginButton = document.getElementById("submit-login");
+
+        function validateRegister() 
+        {
+            let password = registerModal.querySelector("#register-password");
+            let passwordConfirm = registerModal.querySelector("#register-pasword-confirm");
+
+            registerButton.disabled = true;  
+            password.setCustomValidity("Invalid field.");
+            passwordConfirm.setCustomValidity("Invalid field.");
+            
+            if(password.value != passwordConfirm.value)
+                return;
+
+            password.setCustomValidity("");
+            passwordConfirm.setCustomValidity("");
+
+            if(registerModal.querySelectorAll(":invalid").length > 0)
+                return;
+
+            registerButton.disabled = false; 
+        }
+
+        function validateLogin()
+        {
+            if(loginModal.querySelectorAll(":invalid").length > 0)
+            {
+                loginButton.disabled = true;
+            }
+            else
+            {
+                loginButton.disabled = false;
+            }
+        }
+
+        function submitRegister() 
+        {
+            let url = 'https://dogeempire.herokuapp.com/api/users';
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            let sex;
+            if(registerModal.querySelector('#register-woman').checked == true)
+                sex = 'Female';
+            else
+                sex = 'Male';
+
+            let img = registerModal.querySelector('#register-url').value;
+            if(img == '')
+            {
+                img = 'https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png';
+            }
+
+            let data = 
+            {
+                "name": registerModal.querySelector('#register-name').value,
+                "lastName": registerModal.querySelector('#register-last-name').value,
+                "email": registerModal.querySelector('#register-email').value,
+                "image": img,
+                "sex": [sex],
+                "birthdate": registerModal.querySelector('#register-birth-date').value,
+                "password": registerModal.querySelector('#register-password').value,
+                "address": registerModal.querySelector('#register-address').value
+            }
+            xhr.send(JSON.stringify(data));
+
+            xhr.onload = function()
+            {
+                if(xhr.status == 201) 
+                {
+                    document.getElementById('alerts').innerHTML = `
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        User successfully registered.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    `
+                }
+                else 
+                {
+                    document.getElementById('alerts').innerHTML = `
+                    <div class="alert alert-danger alert-dismissible " role="alert">
+                        User could not be registered.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    `
+                }
+            }
+
+            $('#register-modal')
+                .find("input,textarea,select")
+                    .val('')
+                    .end()
+                .find("input[type=checkbox], input[type=radio]")
+                    .prop("checked", "")
+                    .end();
+
+            $('#register-modal').modal('toggle');
+        }
+
+        function submitLogin() 
+        {
+            let loginEmail = document.getElementById('login-email').value;
+            let loginPassword = document.getElementById('login-password').value;
+
+            let url = 'https://dogeempire.herokuapp.com/api/auth/login';
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            let data = 
+            {
+                "email": loginEmail,
+                "password": loginPassword
+            }
+
+            xhr.send(JSON.stringify(data));
+
+            xhr.onload = function()
+            {
+                if(xhr.status == 200) 
+                {
+                    sessionStorage.token = JSON.parse(xhr.response).token;
+                    window.location.href = "index.html";
+                }
+                else 
+                {
+                    document.getElementById('alerts').innerHTML = `
+                    <div class="alert alert-danger alert-dismissible " role="alert">
+                        Invalid information.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    `
+                }
+            }
+        }
+
+        let menuLogout = document.getElementById('logout-menu-button');
+        function filterMenuButtons()
+        {  
+            let menuLogin = document.getElementById('login-menu-button');
+            let menuRegisterDoge = document.getElementById('register-doge-menu-button');
+            let menuMyDoges = document.getElementById('mydoges-menu-button');
+
+            if(sessionStorage.getItem('token'))
+            {
+                menuLogin.hidden = true;
+                menuRegisterDoge.hidden = false;
+                menuLogout.hidden = false;
+                menuMyDoges.hidden = false;
+            }
+            else 
+            {
+                menuLogin.hidden = false;
+                menuRegisterDoge.hidden = true;
+                menuLogout.hidden = true;
+                menuMyDoges.hidden = true;
+            }
+        }
+
+        function logout()
+        {
+            sessionStorage.removeItem("token");
+            window.location.href = "index.html";
+        }
+
+        function openDogeDetails(uid)
+        {
+            if(uid == undefined)
+                return;
+            
+            window.location.href = "https://dogeempire.herokuapp.com/doge.html?uid=" + uid;
+            return false;
+        }
+
+        function showUserDetails()
+        {
+            const urlParams = new URLSearchParams(window.location.search);
+            let email = urlParams.get('email')
+            if(email == undefined)
+                return null;
+
+            let url = 'https://dogeempire.herokuapp.com/api/users/' + email;
+            
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('x-auth', sessionStorage.token);
+
+            let text = '';
+            xhr.send();
+            xhr.onload = function() 
+            {
+                let user = JSON.parse(xhr.response);
+                text += 
+                `<div class="mt-5 border col-4 col-centered rounded mb-5">
+                    <div class="media-left mt-5">
+                        <img src="${user.image}" class="img-fluid rounded-circle" alt="" style="width: 20em;">
+                    </div>
+                
+                    <div class="text-left m-5">
+                        <div class="h1 text-center">${user.name}</div>
+                        <br/>
+                        <div style="margin: 0.5em;">Birthdate: ${user.birthdate}</div>
+                        <div style="margin: 0.5em;">Sex: ${user.sex}</div>
+                        <div style="margin: 0.5em;">Address: ${user.address}</div>
+                        <div style="margin: 0.5em;">Email: ${user.email}</div>
+                    </div>
+                    <br/>
+                    
+                    <div class="h2 font-weight-light">Doges</div>
+                    `;
+                
+                url = 'https://dogeempire.herokuapp.com/api/doges?owner=' + email;
+                xhr = new XMLHttpRequest();
+                xhr.open('GET', url);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('x-auth', sessionStorage.token);
+                xhr.send();
+
+                xhr.onload = function() 
+                {
+                    if(xhr.status != 200)
+                    return null;
+                
+                    let doges = JSON.parse(xhr.response);
+                    let n = doges.pop();
+
+                    for(let doge of doges)
+                    {
+                        text += 
+                        `
+                        <div class="media m-2 rounded color-primary">
+                            <div class="media-left align-self-center m-3">
+                                <img src="${doge.image}" class="img-fluid rounded-circle" alt="" style="width: 8em; height: 8em;">
+                            </div>
+                    
+                            <div class="text-left media-body align-self-center ml-3">
+                                <a href="javascript:void(0);" onclick="openDogeDetails(${doge.uid})">
+                                    <h4>${doge.name}</h4>
+                                </a>
+                                <div class="m-0">Sex: ${doge.sex}</div>
+                                <div class="m-0">Age: ${doge.age}</div>
+                            </div>
+                        </div>
+                        `;
+                    }
+                    text +=  `</div>`;
+                    document.getElementById('user').innerHTML =  text;
+                    
+                }
+            }
+        }
+
+        // ON START
+        showUserDetails();
+        validateRegister();
+        validateLogin();
+        filterMenuButtons();
+
+        // LISTENERS 
+        registerModal.addEventListener("input", function () 
+        {
+            validateRegister();
+        })
+
+        loginModal.addEventListener("input", function()
+        {
+            validateLogin();
+        })
+
+        registerButton.addEventListener("click", function(event) 
+        {
+            event.preventDefault();
+            submitRegister();
+        })
+
+        loginButton.addEventListener("click", function(event) 
+        {
+            event.preventDefault();
+            submitLogin();
+        })
+
+        menuLogout.addEventListener("click", function(event)
+        {
+            event.preventDefault();
+            logout();
+        })
+    </script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
